@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-export default function Navbar() {
+export default function Navbar({ mode, toggleMode }) {
   return (
-    <nav className={`navbar navbar-expand-lg navbar-light bg-light`}>
+    <nav className={`navbar navbar-expand-lg navbar-${mode} bg-${mode}`}>
       <div className="container-fluid">
         <Link className="navbar-brand" to="/">
           Text-Utils
@@ -33,6 +33,24 @@ export default function Navbar() {
             </li>
           </ul>
 
+          <div
+            className={`form-check form-switch text-${
+              mode === "light" ? "dark" : "light"
+            }`}
+          >
+            <input
+              className="form-check-input"
+              onClick={toggleMode}
+              type="checkbox"
+              id="flexSwitchCheckDefault"
+            />
+            <label
+              className="form-check-label"
+              htmlFor="flexSwitchCheckDefault"
+            >
+              Enable Dark Mode
+            </label>
+          </div>
         </div>
       </div>
     </nav>
