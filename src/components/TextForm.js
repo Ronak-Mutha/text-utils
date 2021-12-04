@@ -33,6 +33,10 @@ export default function Textform({ showAlert }) {
     showAlert("Converted to titlecase!", "success");
   };
 
+  const copyText = () => {
+    navigator.clipboard.writeText(text);
+    showAlert("Copied to Clipboard!", "success");
+  };
   return (
     <>
       <div className="container">
@@ -79,6 +83,7 @@ export default function Textform({ showAlert }) {
         <button
           disabled={text.length === 0}
           className="btn btn-primary mx-1 my-1"
+          onClick={copyText}
         >
           Copy Text
         </button>
