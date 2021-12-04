@@ -1,5 +1,23 @@
 import React from "react";
 
-export default function Alert(){
-  return <>This is from Alert component. This will show alerts to user.</>;
+function Alert({ alert }) {
+  const { type, msg } = alert;
+  const capitalize = (word) => {
+    const lower = word.toLowerCase();
+    return lower.charAt(0).toUpperCase() + lower.slice(1);
+  };
+  return (
+    <div style={{ height: "3.125rem" }}>
+      {alert && (
+        <div
+          className={`alert alert-${type} alert-dismissible fade show`}
+          role="alert"
+        >
+          <strong>{capitalize(type)}</strong>: {msg}
+        </div>
+      )}
+    </div>
+  );
 }
+
+export default Alert;
