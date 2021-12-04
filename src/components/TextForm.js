@@ -37,6 +37,13 @@ export default function Textform({ showAlert }) {
     navigator.clipboard.writeText(text);
     showAlert("Copied to Clipboard!", "success");
   };
+
+  const removeExtraSpaces = () => {
+    let newText = text.replace(/\s\s+/g, " ");
+    setText(newText);
+    showAlert("Extra spaces removed!", "success");
+  };
+
   return (
     <>
       <div className="container">
@@ -90,6 +97,7 @@ export default function Textform({ showAlert }) {
         <button
           disabled={text.length === 0}
           className="btn btn-primary mx-1 my-1"
+          onClick={removeExtraSpaces}
         >
           Remove Extra Spaces
         </button>
