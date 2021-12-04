@@ -86,20 +86,7 @@ export default function Textform({ showAlert }) {
         >
           Convert to TitleCase
         </button>
-        <button
-          disabled={text.length === 0}
-          className="btn btn-danger mx-1 my-1"
-          onClick={clearText}
-        >
-          Clear Text
-        </button>
-        <button
-          disabled={text.length === 0}
-          className="btn btn-success mx-1 my-1"
-          onClick={copyText}
-        >
-          Copy Text
-        </button>
+       
         <button
           disabled={text.length === 0}
           className="btn btn-primary mx-1 my-1"
@@ -114,6 +101,21 @@ export default function Textform({ showAlert }) {
           onClick={reverseText}
         >
           Reverse Text
+        </button>
+
+        <button
+          disabled={text.length === 0}
+          className="btn btn-danger mx-1 my-1"
+          onClick={clearText}
+        >
+          Clear Text
+        </button>
+        <button
+          disabled={text.length === 0}
+          className="btn btn-success mx-1 my-1"
+          onClick={copyText}
+        >
+          Copy Text
         </button>
       </div>
       <div className="container my-3">
