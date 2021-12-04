@@ -15,14 +15,24 @@ export default function Textform({ showAlert }) {
     let newText = text.toLowerCase();
     setText(newText);
     showAlert("Converted to lowercase!", "success");
-  }
+  };
 
   const clearText = () => {
-    let newText = '';
+    let newText = "";
     setText(newText);
     showAlert("Text Cleared!", "success");
-  }
-  
+  };
+
+  const convertToTitleCase = () => {
+    let newText = text
+      .toLowerCase()
+      .split(" ")
+      .map((lower) => lower.charAt(0).toUpperCase() + lower.slice(1))
+      .join(" ");
+    setText(newText);
+    showAlert("Converted to titlecase!", "success");
+  };
+
   return (
     <>
       <div className="container">
@@ -51,6 +61,13 @@ export default function Textform({ showAlert }) {
           onClick={convertToLowerCase}
         >
           Convert to Lowercase
+        </button>
+        <button
+          disabled={text.length === 0}
+          className="btn btn-primary mx-1 my-1"
+          onClick={convertToTitleCase}
+        >
+          Convert to TitleCase
         </button>
         <button
           disabled={text.length === 0}
