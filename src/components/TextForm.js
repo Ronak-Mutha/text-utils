@@ -16,6 +16,12 @@ export default function Textform({ showAlert }) {
     setText(newText);
     showAlert("Converted to lowercase!", "success");
   }
+
+  const clearText = () => {
+    let newText = '';
+    setText(newText);
+    showAlert("Text Cleared!", "success");
+  }
   
   return (
     <>
@@ -49,6 +55,7 @@ export default function Textform({ showAlert }) {
         <button
           disabled={text.length === 0}
           className="btn btn-primary mx-1 my-1"
+          onClick={clearText}
         >
           Clear Text
         </button>
