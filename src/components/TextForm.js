@@ -120,7 +120,8 @@ export default function Textform({ showAlert }) {
       </div>
       <div className="container my-3">
         <h2>Current text summary:</h2>
-        <p>Text summary will be shown here</p>
+        <p>{text.split(/\s+/).filter((element)=>{return element.length!==0}).length} words and {text.length} characters</p>
+        <p>{0.008 *  text.split(/\s+/).filter((element)=>{return element.length!==0}).length} Minutes read</p>
 
         <h2>Preview</h2>
         <p>{text.length > 0 ? text : "Nothing to preview!"}</p>
