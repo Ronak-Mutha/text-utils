@@ -44,6 +44,12 @@ export default function Textform({ showAlert }) {
     showAlert("Extra spaces removed!", "success");
   };
 
+  const reverseText = () => {
+    let newText = text.split("").reverse().join("");
+    setText(newText);
+    showAlert("Text reversed!", "success");
+  }
+
   return (
     <>
       <div className="container">
@@ -100,6 +106,14 @@ export default function Textform({ showAlert }) {
           onClick={removeExtraSpaces}
         >
           Remove Extra Spaces
+        </button>
+
+        <button
+          disabled={text.length === 0}
+          className="btn btn-primary mx-1 my-1"
+          onClick={reverseText}
+        >
+          Reverse Text
         </button>
       </div>
       <div className="container my-3">
