@@ -4,11 +4,19 @@ export default function Textform({ showAlert }) {
   const [text, setText] = useState("");
 
   const handleOnChange = (e) => setText(e.target.value);
+
   const convertToUpperCase = () => {
     let newText = text.toUpperCase();
     setText(newText);
     showAlert("Converted to uppercase!", "success");
   };
+
+  const convertToLowerCase = () => {
+    let newText = text.toLowerCase();
+    setText(newText);
+    showAlert("Converted to lowercase!", "success");
+  }
+  
   return (
     <>
       <div className="container">
@@ -34,6 +42,7 @@ export default function Textform({ showAlert }) {
         <button
           disabled={text.length === 0}
           className="btn btn-primary mx-1 my-1"
+          onClick={convertToLowerCase}
         >
           Convert to Lowercase
         </button>
