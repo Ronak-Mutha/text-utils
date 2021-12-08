@@ -57,6 +57,7 @@ export default function Textform({ color, backgroundColor, showAlert }) {
           TextUtils - word counter, character counter, remove extra spaces
         </h1>
         <div className="mb-3">
+          <label> Paste your text here👇 </label>
           <textarea
             style={{ backgroundColor, color }}
             className="form-control"
