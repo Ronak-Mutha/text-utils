@@ -1,8 +1,5 @@
 import React, { useState, Suspense, lazy } from "react";
 import "./App.css";
-// import Navbar from "./components/Navbar";
-// import About from "./components/About";
-// import Alert from "./components/Alert";
 import TextForm from "./components/TextForm";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
