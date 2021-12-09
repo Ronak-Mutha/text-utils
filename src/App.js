@@ -2,6 +2,7 @@ import React, { useState, Suspense, lazy } from "react";
 import "./App.css";
 import TextForm from "./components/TextForm";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Spinner from "react-bootstrap/Spinner";
 
 const Navbar = lazy(() => import("./components/Navbar"));
 const About = lazy(() => import("./components/About"));
@@ -39,11 +40,23 @@ function App() {
   return (
     <div className="App" style={{ backgroundColor, color }}>
       <Router>
-        <Suspense fallback={<div>Loading</div>}>
+        <Suspense
+          fallback={
+            <Spinner animation="border" role="status">
+              <span className="visually-hidden">Loading...</span>
+            </Spinner>
+          }
+        >
           <Navbar mode={mode} toggleMode={toggleMode} />
         </Suspense>
 
-        <Suspense fallback={<div>Loading</div>}>
+        <Suspense
+          fallback={
+            <Spinner animation="border" role="status">
+              <span className="visually-hidden">Loading...</span>
+            </Spinner>
+          }
+        >
           <Alert alert={alert} />
         </Suspense>
 
@@ -53,7 +66,13 @@ function App() {
               exact
               path="/"
               element={
-                <Suspense fallback={<div>Loading</div>}>
+                <Suspense
+                  fallback={
+                    <Spinner animation="border" role="status">
+                      <span className="visually-hidden">Loading...</span>
+                    </Spinner>
+                  }
+                >
                   <TextForm
                     showAlert={showAlert}
                     color={color}
@@ -66,7 +85,13 @@ function App() {
               exact
               path="/about"
               element={
-                <Suspense fallback={<div>Loading</div>}>
+                <Suspense
+                  fallback={
+                    <Spinner animation="border" role="status">
+                      <span className="visually-hidden">Loading...</span>
+                    </Spinner>
+                  }
+                >
                   <About color={color} backgroundColor={backgroundColor} />
                 </Suspense>
               }
